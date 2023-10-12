@@ -1,0 +1,122 @@
+﻿@model IEnumerable<LibraryManagement.Models.Book>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+
+<h2>Books List</h2>
+<p>
+	<a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-responsive-sm table-bordered table-striped table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.BkTitle)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.BookImg)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.BkName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Publisher)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Author)
+			</th>
+		
+			<th>
+				@Html.DisplayNameFor(model => model.BkNum)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.PubDate)
+			</th>
+			<th>Events</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.BkTitle)
+				</td>
+				<td>
+					<img src="@item.BookImg" alt="@item.BkTitle">
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.BkName)
+				</td>
+				<td>
+					<p class="text-center">	@Html.DisplayFor(modelItem => item.Publisher)</p>
+				</td>
+				<td>
+					<p class="text-center">	@Html.DisplayFor(modelItem => item.Author)</p>
+				</td>
+				<td>
+					<p class="text-center">	@Html.DisplayFor(modelItem => item.BkNum)</p>
+				</td>
+				<td>
+					<p class="text-center">	@Html.DisplayFor(modelItem => item.PubDate)</p>
+				</td>
+				<td>
+					<a type="button" class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.BookId">Edit</a>
+					<a type="button" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+					<a type="button" class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.BookId">Details</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: center
+	}
+
+	th {
+		background-color: #f2f2f2;
+	}
+
+	table td {
+		font-size: 18px;
+		font-weight: 400;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	a {
+		margin: 4px;
+	}
+
+	.create-new-button {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.table {
+		border-radius: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	img {
+		border: 1px solid #ddd;
+		padding: 2px;
+		margin: 2px;
+		border-radius: 4px;
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+	}
+</style>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LibraryManagement.Models.Transaction>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Transactions  List</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class=" table table-responsive-sm table-bordered table-striped table-hove">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.TransName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.TransDate)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Borrowing)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.TransName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.TransDate)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Borrowing.BorrowingId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Student.StudId)
+				</td>
+				<td>
+					<a type="button" class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.TransId">Edit</a>
+					<a type="button" class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.TransId">Details</a>
+					<a type="button" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.TransId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

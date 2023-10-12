@@ -1,0 +1,70 @@
+html {
+	font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+	box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+table td {
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+}
+
+a {
+	margin: 4px;
+}
+
+.create-new-button {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.table {
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+	border: 1px solid #ddd;
+	padding: 2px;
+	margin: 2px;
+	border-radius: 4px;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+}

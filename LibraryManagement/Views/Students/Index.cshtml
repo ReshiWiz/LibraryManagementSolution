@@ -1,0 +1,112 @@
+﻿@model IEnumerable<LibraryManagement.Models.Student>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Student List</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="class=" table table-responsive-sm table-bordered table-striped table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Fname)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Lname)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Gender)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Age)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ContactAdd)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.StudEmail)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.StudPass)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Fname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Lname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gender)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Age)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ContactAdd)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.StudEmail)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.StudPass)
+				</td>
+				<td>
+					<a class="btn btn-outline-info" type="button" asp-action="Edit" asp-route-id="@item.StudId">Edit</a>
+					<a type="button" class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.StudId">Details</a>
+					<a type="button" asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.StudId">Delete</a>
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: center
+	}
+
+	th {
+		background-color: #f2f2f2;
+	}
+
+	table td {
+		font-size: 18px;
+		font-weight: 400;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	a {
+		margin: 4px;
+	}
+
+	.create-new-button {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.table {
+		border-radius: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+
+</style>

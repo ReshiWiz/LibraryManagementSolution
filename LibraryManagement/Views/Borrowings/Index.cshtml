@@ -1,0 +1,115 @@
+﻿@model IEnumerable<LibraryManagement.Models.Borrowing>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Borrowings List</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-responsive-sm table-bordered table-striped table-hove">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.BookImg)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateBorrowed)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateReturn)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Book)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student.StudEmail)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student.Fname)
+			</th>
+			<th>Events</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					<img src="   @Html.DisplayFor(modelItem => item.Book.BookImg)" alt="@item.Book.BkTitle" />
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateBorrowed)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateReturn)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Book.BkName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Student.StudEmail)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Student.Fname)
+				</td>
+				<td>
+					<a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.BorrowingId">Edit</a> |
+					<a asp-action="Details" class="btn btn-outline-warning" asp-route-id="@item.BorrowingId">Details</a> |
+					<a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.BorrowingId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: center
+	}
+
+	th {
+		background-color: #f2f2f2;
+	}
+
+	table td {
+		font-size: 18px;
+		font-weight: 400;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	a {
+		margin: 4px;
+	}
+
+	.create-new-button {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.table {
+		border-radius: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	img {
+		border: 1px solid #ddd;
+		padding: 2px;
+		margin: 2px;
+		border-radius: 4px;
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+	}
+</style>
